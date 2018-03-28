@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="mainLayout" template="/ui/jsp/layout/main.jsp">
+		<put-attribute name="title"  value="Tiles Example" />
+		<put-attribute name="header" value="/ui/jsp/layout/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="menu"   value="/ui/jsp/layout/menu.jsp" />
+		<put-attribute name="footer" value="/ui/jsp/layout/footer.jsp" />
+	</definition>
+
+	<definition name="newsList" extends="mainLayout">
+		<put-attribute name="title" value="News List" />
+		<put-attribute name="body" value="/ui/jsp/view/NewsList.jsp" />
+	</definition>
+	<definition name="addNews" extends="mainLayout">
+		<put-attribute name="title" value="Add News" />
+		<put-attribute name="body" value="/ui/jsp/view/NewsCreateModify.jsp" />
+	</definition>
+	<definition name="viewNews" extends="mainLayout">
+		<put-attribute name="title" value="News View" />
+		<put-attribute name="body" value="/ui/jsp/view/NewsView.jsp" />
+	</definition>
+
+</tiles-definitions>

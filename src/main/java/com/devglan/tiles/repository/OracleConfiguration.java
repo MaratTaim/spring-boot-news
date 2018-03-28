@@ -1,0 +1,49 @@
+package com.devglan.tiles.repository;
+
+import oracle.jdbc.pool.OracleDataSource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import javax.sql.DataSource;
+import java.sql.SQLException;
+
+@Configuration
+@ConfigurationProperties("spring.datasource")
+public class OracleConfiguration {
+
+    public OracleConfiguration() {
+    }
+
+    private String username;
+
+    private String password;
+
+    private String url;
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @Bean
+    DataSource dataSource() throws SQLException {
+
+        System.err.println("USER PROPERTIES "+ username);
+
+        OracleDataSource dataSource = new OracleDataSource();
+        dataSource.setUser(username);
+        dataSource.setPassword(password);
+        dataSource.setURL(url);
+
+        return dataSource;
+    }
+
+
+}
